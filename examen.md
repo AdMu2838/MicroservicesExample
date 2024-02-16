@@ -56,9 +56,9 @@
               - Debe consumir a articulo mediante `exists/{id}`, para validar si existe el artículo, antes de persistir la entidad precio. Usando Feign Client
               - Debe consumir a país mediante `exists/{id}`, para validar si existe el país, antes de persistir la entidad precio. Usando Feign Client
           - `[GET]/api/v1/price/article/{articleId}`:
-              - Debe consumir a articulo mediante `exists/{id}`, para validar si existe el artículo, antes de consultar la base de datos. Usando Rest Client con load balancer
+              - Debe consumir a articulo mediante `exists/{id}`, para validar si existe el artículo, antes de consultar la base de datos. Usando Rest Template con load balancer
           - `[GET]/api/v1/price/country/{countryId}`:
-               - Debe consumir a país mediante `exists/{id}`, para validar si existe el país, antes de consultar la base de datos. Usando Rest Client con load balancer
+               - Debe consumir a país mediante `exists/{id}`, para validar si existe el país, antes de consultar la base de datos. Usando Rest Template con load balancer
 
 ## Configuración del gateway:
  - (Todas las fechas tienen que estar con el GMT-5)
