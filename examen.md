@@ -85,6 +85,9 @@
    Gateway Global: Si es necesario que se envíe un Header o una Cookie al gateway, para acceder al microservicio:
    - El microservicio no tiene que recibir ninguno de esos headers o cookies.
 
+## Docker:
+    - Todos los artefactos tienen que tener su Dockerfile funcional exponiendo el puerto por defecto.
+
 ## Nombre de las ramas:
     
 El nombre de las ramas debe ser escrito en minúsculas y con el siguiente formato:
