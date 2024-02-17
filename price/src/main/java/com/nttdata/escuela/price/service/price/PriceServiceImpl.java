@@ -67,7 +67,11 @@ public class PriceServiceImpl implements PriceService {
 
     @Override
     public List<PriceEntity> listPricesByPaisId(Integer countryId) {
-        return this.priceRepository.getAllByPaisId(countryId);
+        if (this.existsCountry(countryId)){
+            return this.priceRepository.getAllByPaisId(countryId);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No permitido");
+        }
     }
     private boolean existsArticle(final Integer articleId) {
         return this.articleService.existsById(articleId);
