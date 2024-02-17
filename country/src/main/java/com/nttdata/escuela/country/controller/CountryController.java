@@ -38,4 +38,15 @@ public class CountryController {
         this.countryService.update(CountryAdapter.toEntity(countryRequestDto, idCountry));
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCountry(@PathVariable("id") Integer idCountry) {
+        this.countryService.deleteById(idCountry);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/exists/{id}")
+    public ResponseEntity<Boolean> existCountryById(@PathVariable("id") Integer idCountry) {
+        return ResponseEntity.ok(this.countryService.existById(idCountry));
+    }
 }

@@ -12,6 +12,11 @@ spring.cloud.gateway:
       #uri: lb://article-service
       predicates:
         - Path=/api/v1/country/**
+    - id: price-service
+      uri: http://localhost:2061
+      #uri: lb://article-service
+      predicates:
+        - Path=/api/v1/price/**
 eureka:
   client:
     service-url:

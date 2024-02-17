@@ -16,6 +16,9 @@ public class CountryAdapter {
     }
 
     public static CountryResponseDto toDto (final CountryEntity countryEntity) {
+        if (countryEntity == null) {
+            return null;
+        }
         return CountryResponseDto.builder()
                 .id(countryEntity.getId())
                 .nombre(countryEntity.getNombre())
