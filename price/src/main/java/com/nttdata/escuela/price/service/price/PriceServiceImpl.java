@@ -1,10 +1,14 @@
 package com.nttdata.escuela.price.service.price;
 
+import com.nttdata.escuela.price.api.article.ArticleService;
+import com.nttdata.escuela.price.api.country.CountryService;
 import com.nttdata.escuela.price.api.price.PriceRepository;
 import com.nttdata.escuela.price.api.price.PriceService;
 import com.nttdata.escuela.price.entity.PriceEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -13,7 +17,11 @@ public class PriceServiceImpl implements PriceService {
     @Autowired
     private PriceRepository priceRepository;
 
+    @Autowired
+    private ArticleService articleService;
 
+    @Autowired
+    private CountryService countryService;
     @Override
     public List<PriceEntity> getAll() {
         return this.priceRepository.getAll();
@@ -49,11 +57,23 @@ public class PriceServiceImpl implements PriceService {
 
     @Override
     public List<PriceEntity> listPricesByArticuloId(Integer articleId) {
-        return this.priceRepository.getAllByArticuloId(articleId);
+        if (this.existsArticle(articleId)){
+            return this.priceRepository.getAllByArticuloId(articleId);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No permitido");
+        }
+
     }
 
     @Override
     public List<PriceEntity> listPricesByPaisId(Integer countryId) {
         return this.priceRepository.getAllByPaisId(countryId);
+    }
+    private boolean existsArticle(final Integer articleId) {
+        return this.articleService.existsById(articleId);
+    }
+
+    private boolean existsCountry(final Integer countryId) {
+        return this.countryService.existsById(countryId);
     }
 }
