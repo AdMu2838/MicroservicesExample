@@ -41,5 +41,13 @@ public class PriceController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/article/{articleId}")
+    public ResponseEntity<List<PriceResponseDto>> getPricesByArticleId(@PathVariable Integer articleId) {
+        return ResponseEntity.ok(PriceAdapter.toDto(this.priceService.listPricesByArticuloId(articleId)));
+    }
 
+    @GetMapping("/country/{countryId}")
+    public ResponseEntity<List<PriceResponseDto>> getPricesByCountryId(@PathVariable Integer countryId) {
+        return ResponseEntity.ok(PriceAdapter.toDto(this.priceService.listPricesByPaisId(countryId)));
+    }
 }

@@ -2,7 +2,7 @@ spring:
   application:
     name: price-service
   profiles:
-    active: default
+    active: production
   config:
     import: configserver:http://localhost:8888
 

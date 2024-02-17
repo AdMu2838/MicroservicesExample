@@ -49,11 +49,11 @@ public class PriceServiceImpl implements PriceService {
 
     @Override
     public List<PriceEntity> listPricesByArticuloId(Integer articleId) {
-        return null;
+        return this.priceRepository.getAllByArticuloId(articleId);
     }
 
     @Override
     public List<PriceEntity> listPricesByPaisId(Integer countryId) {
-        return null;
+        return this.priceRepository.getAllByPaisId(countryId);
     }
 }
