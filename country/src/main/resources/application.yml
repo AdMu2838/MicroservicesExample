@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: country-service
+  profiles:
+    active: default
+  config:
+    import: configserver:http://localhost:8888
