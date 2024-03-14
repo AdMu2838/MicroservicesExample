@@ -7,4 +7,4 @@ eureka:
 
 spring:
   cloud.config.server.git:
-    uri: file://D:\ESCUELA_JAVA _NTT_DATA\examenFebrero\configuration-repositories
+    uri: https://github.com/AdMu2838/configuration-repositories-examen.git

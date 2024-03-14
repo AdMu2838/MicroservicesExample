@@ -9,10 +9,10 @@ spring.cloud.gateway:
       uri: lb://article-service
       predicates:
         - Path=/api/v1/article/**
-        - before=2024-05-02T19:37:00.000-05:00
-        - cookie=chocolate, 70
+        #- before=2024-05-02T19:37:00.000-05:00
+        - Cookie=chocolate, 70
       filters:
-        - add-response-header= JavaMicro, Examen2024
+        - RemoveRequestHeader=Cookie
 
     - id: country-service
       #uri: http://localhost:2063

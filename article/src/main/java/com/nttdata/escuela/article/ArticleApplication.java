@@ -7,7 +7,6 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableJdbcRepositories
 public class ArticleApplication {
 
 	public static void main(String[] args) {
